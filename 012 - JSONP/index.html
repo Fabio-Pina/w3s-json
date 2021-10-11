@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSONP</title>
+</head>
+<body>
+    <h2>JSONP Intro</h2>
+
+    <!-- <script src="index.php"></script> -->
+    
+    <!-- <?php
+        $myJSON = '{"name":"John", "age":30, "city":"New York"}';
+        
+        echo "myFunc(".$myJSON.");";
+        ?>     -->
+        
+        <!-- <h2>Request JSON using the script tag</h2>
+            
+    <p>The PHP file returns a call to a function that will handle the JSON data.</p>
+            
+    <h2>The JavaScript function</h2>
+    
+    <p id="demo"></p>
+
+    <script>
+      function myFunc(myObj) {
+        document.getElementById("demo").innerHTML = myObj.name;
+    }
+    </script>
+
+    <script src="index.php"></script> -->
+
+    <!-- <h2>Creating a Dynamic Script Tag</h2>
+
+    <h2>Click the Button.</h2>
+    
+    <p>A script tag with a src attribute is created and placed in the document.</p>
+    <p>The PHP file returns a call to a function with the JSON object as a parameter.</p>
+
+    <button onclick="clickButton()">Click me!</button>
+
+    <p id="demo"></p>
+
+    <script>
+        function clickButton() {
+        let s = document.createElement("script");
+        s.src = "demo_jsonp.php";
+        document.body.appendChild(s);
+    }
+
+    function myFunc(myObj) {
+    document.getElementById("demo").innerHTML = myObj.name;
+    }
+    </script> -->
+
+    <!-- <p>A script tag with a src attribute is created and placed in the document.</p>
+    <p>The PHP file returns a call to a function with an object as a parameter.</p>
+    <p id="demo"></p>
+
+    <p>Try changing the table property from "customers" to "products".</p>
+
+    <script>
+        const obj = { table: "customers", limit: 10 };
+        let s = document.createElement("script");
+        s.src = "json_demo_db_php?x=" + JSON.stringify(obj);
+        document.body.appendChild(s);
+
+        function myFunc(myObj) {
+            let txt = "";
+            for (let x in myObj) {
+                txt += myObj[x].name + "<br>";
+            }
+
+            document.getElementById("demo").innerHTML = txt;
+        }
+    </script> -->
+
+    <h2>Request With a Callback Function</h2>
+    <p>The PHP file returns a call to the function you send as a callback.</p>
+    <p id="demo"></p>
+
+    <script>
+        let s = document.createElement("script");
+        s.src = "demo_jsonp2.php?callback=myDisplayFunction";
+        document.body.appendChild(s);
+
+        function myDisplayFunction(myObj) {
+        document.getElementById("demo").innerHTML = myObj.name;
+        }
+    </script>
+</body>
+</html>

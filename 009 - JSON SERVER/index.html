@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Server</title>
+</head>
+<body>
+    <!-- <h2>JSON Server</h2> -->
+
+    <!-- <h2>Sending Data</h2>
+
+    <h2>Convert a JavaScript object into a JSON string, and send it to the server.</h2>
+
+    <script>
+      const myObj = { name: "John", age: 31, city: "New York" };
+      const myJSON = JSON.stringify(myObj);
+      window.location = "demo_json.php?x=" + myJSON;
+    </script> -->
+  
+    <!-- Receiving Data -->
+
+    <!-- <h2>Convert a JSON string into a JavaScript object.</h2> -->
+
+    <!-- <p id="demo"></p>
+
+    <script>
+        const myJSON = '{"name": "John", "age": 31, "city":"New York"}';
+        const myObj = JSON.parse(myJSON);
+        document.getElementById("demo").innerHTML = myObj.name;
+    </script> -->
+
+    <!-- JSON From a Server -->
+
+    <!-- Example - Use the XMLHttpRequest to get data from the server: -->
+
+    <!-- <h2>Fetch a JSON file with XMLHttpRequest</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+      const myObj = JSON.parse(this.responseText);
+      document.getElementById("demo").innerHTML = myObj.name;
+      }
+      xmlhttp.open("GET", "json_demo.txt");
+      xmlhttp.send();
+    </script> -->
+
+    <!-- Array as JSON -->
+
+    <h2>Fetch a JSON file with XMLHttpRequest</h2>
+    
+    <p>Content written as an JSON array will be converted into a JavaScript array.</p>
+
+    <p id="demo"></p>
+
+    <script>
+        const xmlhttp = new XMLHttpRequest();
+        xmlhttp.onload = function() {
+          const myArr = JSON.parse(this.responseText);
+          document.getElementById("demo").innerHTML = myArr[0];
+        }
+        xmlhttp.open("GET", "json_demo_array.txt", true);
+        xmlhttp.send();
+    </script>
+
+    
+</body>
+</html>

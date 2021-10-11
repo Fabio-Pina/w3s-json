@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON PHP</title>
+</head>
+<body>
+    <h2>JSON PHP</h2>
+
+    <!-- <h2>The PHP File</h2> -->
+
+    <!-- <h2>The Client JavaScript</h2> -->
+
+    <!-- <h2>Get JSON Data from a PHP</h2> -->
+
+    <!-- <p id="demo"></p>
+
+    <script>
+      const xmlhttp = new XMLHttpRequest();
+
+      xmlhttp.onload = function() {
+      const myObj = JSON.parse(this.responseText);
+      document.getElementById("demo").innerHTML = myObj.name;
+      }
+      xmlhttp.open("GET", "demo_file.php");
+      xmlhttp.send();
+    </script> -->
+
+    <!-- <h2>PHP Array></h2> -->
+    
+    <!-- Arrays in PHP will also be converted into JSON when using the PHP function json_encode():</h2> -->
+
+    <!-- <h2>The Client JavaScript<h2> -->
+    
+    <!-- Here is a JavaScript on the client, using an AJAX call to request the PHP file from the array example above:</h2> -->
+
+    <!-- <h2>Get JSON Data from a PHP Server</h2>
+
+    <p>Convert the data into a JavaScript array:</p>
+
+    <p id="demo"></p>
+
+    <script>
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+        const myObj = JSON.parse(this.responseText);
+
+        document.getElementById("demo").innerHTML = myObj[2];
+      }
+      xmlhttp.open('GET', "demo_file_array.php");
+      xmlhttp.send();
+    </script> -->
+
+    <!-- <h2>Get JSON Data from a PHP Server</h2>
+
+    <p>The JSON received from the PHP file:</p>
+
+    <p id="demo"></p>
+
+    <script>
+      const dbParam = JSON.stringify({"limit":10});
+      
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+        document.getElementById("demo").innerHTML = this.responseText;
+      }
+      xmlhttp.open("GET", "json_demo_db.php?x=" + dbParam);
+      xmlhttp.send();
+      </script> -->
+
+    <!-- <h2>Example Use the Data</h2>
+
+    <h2>Get JSON Data from a PHP Server</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      const obj = { "limit":10 };
+      const dbParam = JSON.stringify(obj);
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+      myObj = JSON.parse(this.responseText);
+      let text = ""
+      for (let x in myObj) {
+      text += myObj[x].name + "<br>";
+      }
+      document.getElementById("demo").innerHTML = text;
+      };
+      xmlhttp.open("GET", "json_demo_db.php?x=" + dbParam);
+      xmlhttp.send();
+    </script>
+
+    <p>Try changing the "limit" property from 10 to 5.</p> -->
+
+    <!-- <h2>PHP Method POST</h2>
+
+    <h2>Use HTTP POST to Get JSON Data from a PHP Server</h2>
+
+    <p id="demo"></p>
+
+    <script>
+      const dbParam = JSON.stringify({"limit":10});
+      const xmlhttp = new XMLHttpRequest();
+      xmlhttp.onload = function() {
+      myObj = JSON.parse(this.responseText);
+      let text = "";
+      for (let x in myObj) {
+        text += myObj[x].name + "<br>";
+      }
+      document.getElementById("demo").innerHTML = text;
+      }
+      xmlhttp.open("POST", "json_demo_db_post.php");
+      xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xmlhttp.send("x=" + dbParam);
+    </script>
+
+    <p>Try changing the "limit" property from 10 to 5.</p> -->
+
+    <h2>PHP file - Use $_POST instead of $_GET:</h2>
+
+    <?php
+      header("Content-Type: application/json; charset=UTF-8");
+      $obj = json_decode($_POST["x"], false);
+
+      $conn = new mysqli("myServer", "myUser", "myPassword", "Northwind");
+      $stmt = $conn->prepare("SELECT name FROM customers LIMIT ?");
+      $stmt->bind_param("s", $obj->limit);
+      $stmt->execute();
+      $result = $stmt->get_result();
+      $outp = $result->fetch_all(MYSQLI_ASSOC);
+
+      echo json_encode($outp);
+    ?>
+    
+
+      
+</body>
+</html>
